@@ -2,27 +2,26 @@
 
 Using LLMs to modify resume sections for getting 80%+ job match where possible.
 
-## Overview
+### Overview
 
-A simple tool to modify specific sections of your LaTeX resume using AI. Uses tags in your LaTeX file to identify and modify specific sections based on prompts you define.
+A simple tool to modify specific sections of your LaTeX resume using LLM. Uses tags in your LaTeX file to identify and modify specific sections based on prompts you define.
 
-## Features
+### Features
 
 - **Tag-based section modification** - Mark sections in your LaTeX with tags
-- **Simple configuration** - One file for API keys, one for prompts
-- **Flexible prompts** - Define different modifications for different sections
-- **Preserves formatting** - Maintains LaTeX structure and formatting
-- **Backup support** - Automatically backs up your original file
+- **Flexible prompts** - Define different modifications for different sections 
+- **Preserve formatting** - Maintains LaTeX structure and formatting (still need to add a check for this)
+- **Backup support** - Automatically back up your original file
 
-## Quick Start
+### Quick Start
 
-### 1. Installation
+#### 1. Installation
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Set up your API key
+#### 2. Set up API key to use LLM
 
 Option A: Edit `config.yaml` and add your API key:
 ```yaml
@@ -37,7 +36,7 @@ Option B: Use environment variable:
 export OPENAI_API_KEY=your_key_here
 ```
 
-### 3. Configure prompts
+#### 3. Configure prompts for specifc sections
 
 Edit `prompts.yaml` to define which sections to modify and how:
 
@@ -51,7 +50,7 @@ prompts:
 
 Set `enabled: true` for sections you want to modify.
 
-### 4. Run the modifier
+#### 4. Run
 
 ```bash
 python modifier.py
@@ -61,18 +60,18 @@ The script will:
 1. Read `base-template.tex` 
 2. Process sections marked with enabled prompts
 3. Write output to `resume.tex` (configurable in `config.yaml`)
-4. Create a backup of your original file
+4. Create a backup of the original file (check config.yaml)
 
-## File Structure
+### File Structure
 
-- **base-template.tex** - Your resume template with tagged sections
-- **config.yaml** - API keys and settings
-- **prompts.yaml** - Modification prompts for each section
-- **modifier.py** - Main script
+- **base-template.tex** - base resume template with tagged sections for testing
+- **config.yaml** - API keys and other configurations
+- **prompts.yaml** - prompts for modifying each section
+- **modifier.py** - main script
 
-## How It Works
+### How It Works?
 
-### Tagging Sections
+#### Tagging Sections
 
 In your LaTeX file, wrap sections with tags:
 
@@ -109,9 +108,9 @@ prompts:
 python modifier.py
 ```
 
-## Configuration
+### Configuration
 
-### config.yaml
+#### config.yaml
 
 ```yaml
 # LLM settings
@@ -131,7 +130,7 @@ options:
   backup_suffix: .backup
 ```
 
-### prompts.yaml
+#### prompts.yaml
 
 ```yaml
 prompts:
@@ -142,9 +141,9 @@ prompts:
     enabled: true
 ```
 
-## Examples
+### Examples
 
-### Tailor for Backend Engineer Role
+#### Tailor for Backend Engineer Role
 
 ```yaml
 - tag: summary
@@ -160,7 +159,7 @@ prompts:
   enabled: true
 ```
 
-### Add Cloud Technologies
+#### Add Cloud Technologies
 
 ```yaml
 - tag: skills
@@ -170,15 +169,14 @@ prompts:
   enabled: true
 ```
 
-## Tips
+### Tips
 
-1. **Start with one section** - Set only one `enabled: true` to test
-2. **Be specific in prompts** - Clear instructions = better results
-3. **Check the backup** - Original saved as `.backup` file
-4. **Iterate** - Run multiple times with different prompts
-5. **Review output** - Always review AI-modified content
+1. **Be specific in prompts** - Be clear midge
+2. **Enable backup** - Better be safe than sorry, why would you wanna disable this?
+3. **Iterate** - Context not saved. It will server you good to rinse and repeat till you get good results
+4. **Review output** - Always review content (never trust LLMs)
 
-## Troubleshooting
+### Troubleshooting
 
 **API Key Error**: Make sure your API key is set in `config.yaml` or as an environment variable
 
@@ -186,6 +184,6 @@ prompts:
 
 **No Prompts**: Set `enabled: true` in `prompts.yaml` for sections you want to modify
 
-## License
+### License
 
-MIT License - Use freely for your resume optimization needs!
+MIT License - Use freely 
