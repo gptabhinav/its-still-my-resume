@@ -1,0 +1,30 @@
+# Configuration file for LaTeX Resume Modifier
+
+# LLM Provider Configuration
+llm:
+  # Provider: openai or anthropic
+  provider: openai
+  
+  # API Key (alternatively set OPENAI_API_KEY or ANTHROPIC_API_KEY environment variable)
+  api_key: YOUR_API_KEY_HERE
+  
+  # Model to use
+  # For OpenAI: gpt-4, gpt-4-turbo, gpt-3.5-turbo
+  # For Anthropic: claude-3-opus-20240229, claude-3-sonnet-20240229
+  model: gpt-4
+
+# Template Configuration
+template:
+  # Path to the base template file
+  input_file: base-template.tex
+  
+  # Output file path (if not specified, will use input_file with .modified.tex suffix)
+  output_file: resume.tex
+
+# Processing Options
+options:
+  # Create backup before modifying
+  create_backup: true
+  
+  # Backup file suffix
+  backup_suffix: .backup

@@ -1,0 +1,41 @@
+# Prompts file for modifying specific sections of the resume
+# Each entry specifies a tag and the modification prompt to apply
+
+prompts:
+  # Summary section modifications
+  - tag: summary
+    prompt: |
+      Rewrite this summary to emphasize software engineering expertise with focus on 
+      backend development, distributed systems, and Python. Make it concise and impactful.
+    enabled: true
+
+  # Experience section modifications  
+  - tag: experience
+    prompt: |
+      Add quantifiable metrics to each bullet point. Include percentages, dollar amounts,
+      user numbers, or time savings. Make achievements more concrete and impressive.
+    enabled: false
+
+  # Skills section modifications
+  - tag: skills
+    prompt: |
+      Reorganize skills by proficiency level. Add cloud technologies (AWS, Azure),
+      containerization (Docker, Kubernetes), and CI/CD tools.
+    enabled: false
+
+  # Projects section modifications
+  - tag: projects
+    prompt: |
+      Add more technical details about architecture, technologies used, and challenges
+      overcome. Emphasize scalability and impact.
+    enabled: false
+
+  # Education section modifications
+  - tag: education
+    prompt: |
+      Add relevant technical projects or research if applicable. Highlight academic
+      achievements and relevant coursework.
+    enabled: false
+
+# Example: To modify multiple sections, set enabled: true for each section
+# The script will process all enabled prompts in order
