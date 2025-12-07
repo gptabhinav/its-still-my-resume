@@ -56,6 +56,13 @@ Set `enabled: true` for sections you want to modify.
 python modifier.py
 ```
 
+### (Additional)
+It might help to have a local latex renderer like the `Latex Workshop` extension in vscode.  If you are in linux, you might need this too
+```bash
+sudo apt update
+sudo apt install latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
+```
+
 The script will:
 1. Read `base-template.tex` 
 2. Process sections marked with enabled prompts
