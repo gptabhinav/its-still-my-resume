@@ -5,7 +5,6 @@ CLI tool for modifying LaTeX resume sections using LLM prompts.
 
 import click
 import os
-from pathlib import Path
 from typing import Optional
 
 from latex_parser import LatexParser

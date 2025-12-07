@@ -144,8 +144,7 @@ class LatexModifier:
         self,
         section_content: str,
         modification_prompt: str,
-        section_name: Optional[str] = None,
-        preserve_latex: bool = True
+        section_name: Optional[str] = None
     ) -> str:
         """
         Modify a section using LLM.
@@ -154,7 +153,6 @@ class LatexModifier:
             section_content: The current content of the section
             modification_prompt: Instructions for modification
             section_name: Optional name of the section for context
-            preserve_latex: Whether to preserve LaTeX formatting
             
         Returns:
             Modified section content

@@ -3,7 +3,7 @@ Tests for LLM integration module.
 """
 
 import pytest
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, patch
 from llm_integration import LatexModifier, LLMProvider, OpenAIProvider, AnthropicProvider
 
 
