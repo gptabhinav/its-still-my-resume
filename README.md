@@ -1,2 +1,191 @@
-# its-still-my-resume
-using llms to modify resume for getting 80% + match atleast where possible
+# LaTeX Resume Modifier
+
+Using LLMs to modify resume sections for getting 80%+ job match where possible.
+
+## Overview
+
+A simple tool to modify specific sections of your LaTeX resume using AI. Uses tags in your LaTeX file to identify and modify specific sections based on prompts you define.
+
+## Features
+
+- **Tag-based section modification** - Mark sections in your LaTeX with tags
+- **Simple configuration** - One file for API keys, one for prompts
+- **Flexible prompts** - Define different modifications for different sections
+- **Preserves formatting** - Maintains LaTeX structure and formatting
+- **Backup support** - Automatically backs up your original file
+
+## Quick Start
+
+### 1. Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Set up your API key
+
+Option A: Edit `config.yaml` and add your API key:
+```yaml
+llm:
+  provider: openai
+  api_key: YOUR_API_KEY_HERE
+  model: gpt-4
+```
+
+Option B: Use environment variable:
+```bash
+export OPENAI_API_KEY=your_key_here
+```
+
+### 3. Configure prompts
+
+Edit `prompts.yaml` to define which sections to modify and how:
+
+```yaml
+prompts:
+  - tag: summary
+    prompt: |
+      Rewrite this summary to emphasize backend development expertise
+    enabled: true
+```
+
+Set `enabled: true` for sections you want to modify.
+
+### 4. Run the modifier
+
+```bash
+python modifier.py
+```
+
+The script will:
+1. Read `base-template.tex` 
+2. Process sections marked with enabled prompts
+3. Write output to `resume.tex` (configurable in `config.yaml`)
+4. Create a backup of your original file
+
+## File Structure
+
+- **base-template.tex** - Your resume template with tagged sections
+- **config.yaml** - API keys and settings
+- **prompts.yaml** - Modification prompts for each section
+- **modifier.py** - Main script
+
+## How It Works
+
+### Tagging Sections
+
+In your LaTeX file, wrap sections with tags:
+
+```latex
+% TAG: summary
+\section{Summary}
+Your summary content here...
+% END_TAG: summary
+
+% TAG: experience  
+\section{Experience}
+Your experience content here...
+% END_TAG: experience
+```
+
+### Defining Prompts
+
+In `prompts.yaml`, specify modifications:
+
+```yaml
+prompts:
+  - tag: summary
+    prompt: "Make this more concise and emphasize cloud expertise"
+    enabled: true
+    
+  - tag: experience
+    prompt: "Add quantifiable metrics to each bullet point"
+    enabled: true
+```
+
+### Running
+
+```bash
+python modifier.py
+```
+
+## Configuration
+
+### config.yaml
+
+```yaml
+# LLM settings
+llm:
+  provider: openai  # or anthropic
+  api_key: YOUR_API_KEY_HERE
+  model: gpt-4
+
+# File paths
+template:
+  input_file: base-template.tex
+  output_file: resume.tex
+
+# Options
+options:
+  create_backup: true
+  backup_suffix: .backup
+```
+
+### prompts.yaml
+
+```yaml
+prompts:
+  - tag: section_name
+    prompt: |
+      Your modification instructions here.
+      Can be multiple lines.
+    enabled: true
+```
+
+## Examples
+
+### Tailor for Backend Engineer Role
+
+```yaml
+- tag: summary
+  prompt: |
+    Rewrite emphasizing: Python expertise, microservices architecture,
+    distributed systems, and 5+ years experience. Target senior backend role.
+  enabled: true
+
+- tag: experience
+  prompt: |
+    Add metrics: user numbers, performance improvements, system scale.
+    Emphasize backend technologies and architecture decisions.
+  enabled: true
+```
+
+### Add Cloud Technologies
+
+```yaml
+- tag: skills
+  prompt: |
+    Add AWS (Lambda, ECS, RDS), Docker, Kubernetes, Terraform.
+    Organize by category: Languages, Cloud, DevOps, Databases.
+  enabled: true
+```
+
+## Tips
+
+1. **Start with one section** - Set only one `enabled: true` to test
+2. **Be specific in prompts** - Clear instructions = better results
+3. **Check the backup** - Original saved as `.backup` file
+4. **Iterate** - Run multiple times with different prompts
+5. **Review output** - Always review AI-modified content
+
+## Troubleshooting
+
+**API Key Error**: Make sure your API key is set in `config.yaml` or as an environment variable
+
+**Tag Not Found**: Check that your LaTeX file has matching `% TAG:` and `% END_TAG:` markers
+
+**No Prompts**: Set `enabled: true` in `prompts.yaml` for sections you want to modify
+
+## License
+
+MIT License - Use freely for your resume optimization needs!
