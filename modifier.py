@@ -36,8 +36,8 @@ def extract_tagged_section(content, tag):
 def replace_tagged_section(content, tag, new_content):
     """Replace content between TAG and END_TAG markers."""
     pattern = rf'(% TAG: {tag}\n).*?(\n% END_TAG: {tag})'
-    replacement = rf'\g<1>{new_content}\g<2>'
-    modified = re.sub(pattern, replacement, content, flags=re.DOTALL)
+    # Use a function for replacement to avoid issues with backslashes in LaTeX content
+    modified = re.sub(pattern, lambda m: m.group(1) + new_content + m.group(2), content, flags=re.DOTALL)
     return modified
 
 
