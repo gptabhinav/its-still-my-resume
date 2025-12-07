@@ -7,13 +7,39 @@ prompts:
     prompt: |
       Rewrite this summary to emphasize software engineering expertise with focus on 
       backend development, distributed systems, and Python. Make it concise and impactful.
-    enabled: true
+    enabled: false
 
-  # Experience section modifications  
+  # Experience section - entire section
   - tag: experience
     prompt: |
       Add quantifiable metrics to each bullet point. Include percentages, dollar amounts,
       user numbers, or time savings. Make achievements more concrete and impressive.
+    enabled: false
+
+  # Experience subsections - individual job entries
+  - tag: experience_senior
+    prompt: |
+      Emphasize leadership, architecture decisions, and measurable impact on system performance.
+      Add specific technologies and team size details.
+    enabled: false
+
+  - tag: experience_startup
+    prompt: |
+      Highlight ownership, end-to-end development, and cross-functional collaboration.
+      Add specific metrics about API performance or database optimization.
+    enabled: false
+
+  # Education section
+  - tag: education
+    prompt: |
+      Add relevant technical projects or research if applicable. Highlight academic
+      achievements and relevant coursework.
+    enabled: false
+
+  # Education subsections
+  - tag: education_degree
+    prompt: |
+      Emphasize relevant coursework and academic projects related to the target role.
     enabled: false
 
   # Skills section modifications
@@ -23,19 +49,32 @@ prompts:
       containerization (Docker, Kubernetes), and CI/CD tools.
     enabled: false
 
-  # Projects section modifications
+  # Projects section - entire section
   - tag: projects
     prompt: |
       Add more technical details about architecture, technologies used, and challenges
       overcome. Emphasize scalability and impact.
     enabled: false
 
-  # Education section modifications
-  - tag: education
+  # Project subsections - individual projects
+  - tag: projects_ecommerce
     prompt: |
-      Add relevant technical projects or research if applicable. Highlight academic
-      achievements and relevant coursework.
+      Add technical details about microservices architecture, payment processing,
+      and scalability challenges solved.
+    enabled: false
+
+  - tag: projects_analytics
+    prompt: |
+      Emphasize data pipeline architecture, real-time processing capabilities,
+      and business impact of insights generated.
+    enabled: false
+
+  # Certifications section
+  - tag: certifications
+    prompt: |
+      Add dates obtained and highlight the most relevant certifications for the target role.
     enabled: false
 
 # Example: To modify multiple sections, set enabled: true for each section
+# You can modify entire sections (e.g., 'experience') or specific subsections (e.g., 'experience_senior')
 # The script will process all enabled prompts in order
