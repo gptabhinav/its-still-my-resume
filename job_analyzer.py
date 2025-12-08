@@ -5,7 +5,6 @@ Extracts and verifies relevant skills from job postings.
 """
 
 import os
-import re
 import yaml
 import json
 from typing import Dict, List, Any

@@ -6,7 +6,7 @@ Unit tests for job_analyzer module.
 import unittest
 import json
 import os
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, patch
 from job_analyzer import (
     extract_skills_from_job_posting,
     verify_extracted_skills,

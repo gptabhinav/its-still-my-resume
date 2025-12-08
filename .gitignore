@@ -53,3 +53,5 @@ htmlcov/
 # Output
 output/
 *.backup
+job_analysis_results.json
+resume.tex
